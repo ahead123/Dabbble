@@ -1,3 +1,43 @@
-<div>
-	Shot
+<div class="media shot_header">
+	<div class="media-left">
+		<img class="media-object" ng-src="{{shot.player.avatar_url}}">
+	</div>
+	<div class="media-body">
+		<h1 class="media-heading">{{shot.title}}</h1>
+		<span class="muted">by</span>
+		<a href="#/player/{{shot.player.username}}">
+			{{shot.player.name}}
+		</a>
+
+		{{shot.created_at | dabbbleDate}}
+	</div>
 </div>
+
+
+	<div class="row">
+		<div class="col-xs-6 col-md-3">
+			<img class="shot_image thumbnail" ng-src="{{shot.image_url}}">
+			<div class="page-header">
+				<h2>Responses</h2>
+			</div>
+			<div ng-repeat="comment in comments" class="media comment">
+				<div class="media-left">
+					<img class="media-object" ng-src="{{comment.player.avatar_url}}">
+				</div>
+				<div class="media-body">
+					<strong>
+						<a href="#/players/{{comment.player.username}}">
+							{{comment.player.name}}
+						</a>
+					</strong>
+					<p ng-bind-html-unsafe="comment.body"></p>
+				</div>
+
+			</div>
+			<button class="btn btn-primary"
+					ng-show="comments.page < comments.pages"
+					ng-click="comments.loadNextPage()">
+					Load More Comments
+			</button>
+		</div>
+	</div>

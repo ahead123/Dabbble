@@ -8,11 +8,16 @@
 	<link rel="stylesheet" href="css/app.css"/>
 </head>
 <body ng-controller="AppCtrl">
-<div class="container">
+<div class="container-fluid">
 	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
 			<a class="navbar-brand" href="#/">Dabble</a>
-			<ul class="nav">	
+			<ul class="nav navbar-nav">	
+				<li><a href="#/popular">Popular</a></li>
+				<li><a href="#/everyone">Everyone</a></li>
+				<li><a href="#/debuts">Debuts</a></li>
 			</ul>
+		</div>
 	</nav>
 
 	<div ng-view></div>
